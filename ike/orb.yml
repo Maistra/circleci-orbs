@@ -54,10 +54,15 @@ commands:
 
   update_golang:
     description: |
-      Updates golang to 1.12
+      Updates golang
+    parameters:
+      version:
+        type: string
+        description: "Version of Go language - see https://golang.org/doc/devel/release.html"
+        default: "1.12"
     steps:
       - run:
-          name: "Updating golang to 1.12"
+          name: "Updating golang to  << parameters.version >>"
           command: |
             sudo rm -rf /usr/local/go
-            sudo circleci-install golang 1.12
+            sudo circleci-install golang << parameters.version >>
