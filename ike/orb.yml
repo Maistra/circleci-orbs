@@ -1,6 +1,7 @@
 version: 2.1
 description: "A collection of orbs for testing Ike with Maistra(Openshift) on a CircleCI machine"
 commands:
+
   docker_insecure_registry:
     description: |
       "Allows docker daemon to use insecure registries"
@@ -13,6 +14,7 @@ commands:
             sudo mv ${json} /etc/docker/daemon.json
             sudo service docker restart
             echo "Configured Docker daemon with insecure-registry"
+
   install_maistra:
     description: |
       Installs Maistra on the vm's machine.
@@ -50,6 +52,7 @@ commands:
             curl -s https://packagecloud.io/install/repositories/datawireio/telepresence/script.deb.sh | sudo bash
             sudo apt install --no-install-recommends telepresence
             telepresence --version
+
   update_golang:
     description: |
       Updates golang to 1.12
