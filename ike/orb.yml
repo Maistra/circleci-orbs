@@ -19,7 +19,7 @@ commands:
     parameters:
       version:
         type: string
-        description: "Valid version of Maistra cli tool - see https://github.com/Maistra/origin/releases/"
+        description: "Version of released Maistra cli tool - see https://github.com/Maistra/origin/releases/"
         default: "v3.11.0+maistra-0.8.0"
     steps:
       - run:
