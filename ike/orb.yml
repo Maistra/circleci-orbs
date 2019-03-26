@@ -41,7 +41,7 @@ commands:
 
   install_telepresence:
     description: |
-      Installs Telepresence 0.97 (together with python3)
+      Installs Telepresence (together with python3)
     steps:
       - run:
           name: "Installing telepresence.io"
