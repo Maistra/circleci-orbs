@@ -21,16 +21,17 @@ commands:
           name: "Installing Maistra Cluster v3.11.0_maistra-0.8.0 "
           command: |
             cd ~
-            kube_version=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
-            curl -LO https://storage.googleapis.com/kubernetes-release/release/${kube_version}/bin/linux/amd64/kubectl && \
-            chmod +x kubectl && sudo mv kubectl /usr/local/bin/
-            echo "  Installed kubectl"
 
-            curl -LO https://github.com/Maistra/origin/releases/download/v3.11.0%2Bmaistra-0.8.0/istiooc_linux && \
+            curl -LO https://github.com/Maistra/origin/releases/download/v3.11.0+maistra-0.8.0/istiooc_linux && \
             chmod +x $PWD/istiooc_linux && mv $PWD/istiooc_linux $PWD/istiooc && sudo mv $PWD/istiooc /usr/local/bin/ && \
             sudo cp /usr/local/bin/istiooc /usr/local/bin/oc
             istiooc version
             oc version
+
+            kube_version=$(istiooc version | grep kubernetes | cut -d'+' -f 1 | cut -d' ' -f 2)
+            curl -LO https://storage.googleapis.com/kubernetes-release/release/${kube_version}/bin/linux/amd64/kubectl && \
+            chmod +x kubectl && sudo mv kubectl /usr/local/bin/
+            echo "  Installed kubectl"
 
             echo "Configured Maistra cluster v3.11.0_maistra-0.8.0"
   install_telepresence:
