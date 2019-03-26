@@ -39,7 +39,6 @@ commands:
             chmod +x kubectl && sudo mv kubectl /usr/local/bin/
             echo "Installed kubectl\n$(kubectl version)\n"
 
-            echo "Configured Maistra cluster v3.11.0_maistra-0.8.0"
   install_telepresence:
     description: |
       Installs Telepresence 0.97 (together with python3)
